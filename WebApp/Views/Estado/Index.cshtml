@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Entidades.Administracion.Estado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="x_panel">
+            <div class="x_title">
+                <h2>Listado de Estados</h2>
+                <div class="clearfix"></div>
+            </div>
+            <div class="x_content">
+                <p>
+                    <a href="@Url.Action("Create", "Estado")" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> Nuevo Estado</a>
+                </p>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>                           
+                            <th>
+                                @Html.DisplayNameFor(model => model.codigo)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.nombre)
+                            </th>                            
+                            <th>
+                                @Html.DisplayNameFor(model => model.proceso)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.documentos)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.observacion)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.codigo)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.nombre)
+                                </td>                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.proceso)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.documentos)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.observacion)
+                                </td>
+                                <td>   
+                                    <a href="@Url.Action("Edit","Estado", new { id = item.idEstado })" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
